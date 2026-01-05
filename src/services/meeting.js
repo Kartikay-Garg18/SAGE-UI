@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 const API = import.meta.env.VITE_API_URL;
 
 const randomGenerator = (topics) => {
@@ -15,4 +16,20 @@ const getTopic = async () => {
     }
 }
 
-export {getTopic};
+const getMeeting = async (roomCode) => {
+    try {
+        const response = await axios.get(`${API}/meetings/${roomCode}`,
+            {
+                headers: {
+                    'Authorization': `Bearer ${Cookies.get('token')}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+        return response.data;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+export {getTopic, getMeeting};

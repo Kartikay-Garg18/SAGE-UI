@@ -33,7 +33,7 @@ const SchedulePage = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6 md:p-8">
+      <div className="flex-1 overflow-y-auto p-6 md:p-8 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {meetings.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
             <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
